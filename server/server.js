@@ -25,6 +25,8 @@ app.use(express.static(publicPath));
 //let io = socketIO(server);
 module.exports.io = socketIO(server); //para poder usar en socket.js, esta exportando el objeto io
 
+//module.exports.io = socketIO(server);
+//require('./sockets/socket');
 
 //llamar a socket.js
 require('./sockets/socket');

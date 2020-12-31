@@ -19,6 +19,6 @@
 
  //escuchar mensaje
  //se coloca function, porque recibimos una funcion
- socket.on('enviarMensajeBack', function(mensaje) {
+ socket.on('enviarMensaje', function(mensaje) {
      console.log('Servidor', mensaje);
  })

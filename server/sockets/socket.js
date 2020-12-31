@@ -3,10 +3,11 @@ const { io } = require('../server');
 
 
 //client obtiene toda la informacion de la pc cliente
+
 io.on('connection', (client) => {
     console.log('Usuario conectado');
 
-    client.emit('enviarMensajeBack', {
+    client.emit('enviarMensaje', {
         usuario: 'Administrador',
         mensaje: 'Bienvenido a esta aplicacion'
     });
@@ -23,7 +24,14 @@ io.on('connection', (client) => {
         console.log(data);
 
         //broadcast envia a todos los usuarios de la aplicacion
-        client.broadcast.emit('enviarMensaje', data);
+
+        //client.broadcast.emit('enviarMensaje', data);
+
+        client.broadcast.emit('enviarMensaje', {
+            usuario: data.usuario,
+            mensaje: data.mensaje
+        });
+
         /* if (mensaje.usuario) {
             callback1({
                 resp: 'TODO SALIO BIEN'
@@ -35,5 +43,7 @@ io.on('connection', (client) => {
         } */
 
     });
+
+
 
 });
